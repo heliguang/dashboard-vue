@@ -1,11 +1,34 @@
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo, getAsyncRoutes } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { resetRouter } from '@/router'
+import { resetRouter, asyncComponents } from '@/router'
+
+/* Layout */
+import Layout from '@/layout'
+import V404 from '@/views/404'
+
+export function filterAsyncRoutes(routes) {
+  routes.forEach(route => {
+    if (route.component) {
+      if (route.component === '/layout') {
+        route.component = Layout
+      } else {
+        // TODO:这里不够优雅
+        // 期望最后优化为按需加载的模式
+        route.component = asyncComponents[route.component] || V404
+      }
+    }
+    if (route.children) {
+      route.children = filterAsyncRoutes(route.children)
+    }
+  })
+  return routes
+}
 
 const state = {
   token: getToken(),
   name: '',
-  avatar: ''
+  avatar: '',
+  asyncRoutes: null
 }
 
 const mutations = {
@@ -17,6 +40,9 @@ const mutations = {
   },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
+  },
+  SET_ASYNC_ROUTES: (state, routes) => {
+    state.asyncRoutes = routes
   }
 }
 
@@ -66,6 +92,19 @@ const actions = {
         commit('SET_NAME', name)
         commit('SET_AVATAR', avatar)
         resolve(response)
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+
+  // get user info
+  getAsyncRoutes({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      getAsyncRoutes(state.token).then(response => {
+        const filteredAsyncRoutes = filterAsyncRoutes(response.routes)
+        commit('SET_ASYNC_ROUTES', filteredAsyncRoutes)
+        resolve(filteredAsyncRoutes)
       }).catch(error => {
         reject(error)
       })

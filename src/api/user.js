@@ -16,6 +16,14 @@ export function getInfo(token) {
   })
 }
 
+export function getAsyncRoutes(token) {
+  return request({
+    url: '/user/asyncRoutes',
+    method: 'get',
+    params: { token }
+  })
+}
+
 export function logout() {
   return request({
     url: '/user/logout',

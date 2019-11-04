@@ -26,15 +26,22 @@ router.beforeEach(async(to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      const hasGetUserInfo = store.getters.name
-      if (hasGetUserInfo) {
+      // get user info
+      await store.dispatch('user/getInfo')
+      const hasAsyncRoutes = store.getters.asyncRoutes
+      if (hasAsyncRoutes) {
         next()
       } else {
         try {
-          // get user info
-          await store.dispatch('user/getInfo')
+          // get async routes
+          await store.dispatch('user/getAsyncRoutes')
+          const asyncRoutes = await store.dispatch('user/getAsyncRoutes')
 
-          next()
+          // dynamically add accessible routes
+          router.addRoutes(asyncRoutes)
+          // hack method to ensure that addRoutes is complete
+          // set the replace: true, so the navigation will not leave a history record
+          next({ ...to, replace: true })
         } catch (error) {
           // remove token and go to login page to re-login
           await store.dispatch('user/resetToken')

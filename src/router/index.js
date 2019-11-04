@@ -78,6 +78,22 @@ export const constantRoutes = [
   },
 
   {
+    path: 'external-link',
+    component: Layout,
+    children: [
+      {
+        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
+        meta: { title: 'External Link', icon: 'link' }
+      }
+    ]
+  },
+
+  // 404 page must be placed at the end !!!
+  { path: '*', redirect: '/404', hidden: true }
+]
+
+export const asyncRoutes = [
+  {
     path: '/form',
     component: Layout,
     children: [
@@ -146,22 +162,12 @@ export const constantRoutes = [
         meta: { title: 'menu2' }
       }
     ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
-
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  }
 ]
+
+export const asyncComponents = {
+  '/views/form/index': require('@/views/form/index').default
+}
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
