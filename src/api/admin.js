@@ -1,26 +1,18 @@
 import request from '@/utils/request'
 
-export function addUser(data) {
+export function replaceUser(data) {
   return request({
-    url: '/admin/addUser',
+    url: '/admin/replaceUser',
     method: 'post',
     data
   })
 }
 
-export function deleteUser(user) {
+export function deleteUser(data) {
   return request({
     url: '/admin/deleteUser',
     method: 'post',
-    user
-  })
-}
-
-export function updateUser(user) {
-  return request({
-    url: '/admin/updateUser',
-    method: 'post',
-    user
+    data
   })
 }
 

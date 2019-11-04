@@ -11,7 +11,9 @@ export default {
     edit: '编辑',
     publish: '发布',
     draft: '丢弃',
-    delete: '删除'
+    delete: '删除',
+    cancel: '取 消',
+    confirm: '确 定'
   }
   // table: {
   //   dynamicTips1: '固定表头, 按照表头顺序排序',

@@ -16,7 +16,7 @@ const messages = {
   zh: {
     ...zhLocale,
     ...elementZhLocale
-  },
+  }
 }
 export function getLanguage() {
   const chooseLanguage = Cookies.get('language')
