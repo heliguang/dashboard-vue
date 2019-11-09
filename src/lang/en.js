@@ -1,4 +1,18 @@
 export default {
+  table: {
+    add: 'Add user',
+    reviewer: 'Show password',
+    id: 'Index',
+    account: 'Account',
+    password: 'Password',
+    role: 'Role',
+    actions: 'Actions',
+    edit: 'Edit',
+    draft: 'Draft',
+    delete: 'Delete',
+    cancel: 'Cancel',
+    confirm: 'Confirm'
+  }
   // table: {
   //   dynamicTips1: 'Fixed header, sorted by header order',
   //   dynamicTips2: 'Not fixed header, sorted by click order',
