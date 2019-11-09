@@ -12,6 +12,29 @@ export default {
     delete: 'Delete',
     cancel: 'Cancel',
     confirm: 'Confirm'
+  },
+  services: {
+    auth: {
+      add: '添加账号',
+      id: '序号',
+      name: '账号',
+      password: '密码',
+      md5: 'MD5',
+      actions: '操作',
+      copyName: '复制文件名',
+      copyMD5: '复制MD5',
+      delete: '删除'
+    },
+    file: {
+      id: '序号',
+      name: '文件名',
+      size: '文件长度',
+      md5: 'MD5',
+      actions: '操作',
+      copyName: '复制文件名',
+      copyMD5: '复制MD5',
+      delete: '删除'
+    }
   }
   // table: {
   //   dynamicTips1: 'Fixed header, sorted by header order',
