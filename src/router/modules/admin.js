@@ -2,7 +2,7 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
+const adminRouter = {
   path: '/admin',
   component: Layout,
   redirect: '/admin/user',
@@ -17,7 +17,13 @@ const tableRouter = {
       component: () => import('@/views/admin/user'),
       name: 'ComplexTable',
       meta: { title: '用户管理' }
+    },
+    {
+      path: 'role',
+      component: () => import('@/views/admin/role'),
+      name: 'RolePermission',
+      meta: { title: '角色管理' }
     }
   ]
 }
-export default tableRouter
+export default adminRouter

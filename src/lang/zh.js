@@ -14,6 +14,36 @@ export default {
     delete: '删除',
     cancel: '取 消',
     confirm: '确 定'
+  },
+  permission: {
+    addRole: '添加角色',
+    editPermission: '编辑权限',
+    delete: '删除',
+    cancel: '取 消',
+    confirm: '确 定'
+  },
+  services: {
+    auth: {
+      add: '添加账号',
+      id: '序号',
+      name: '账号',
+      password: '密码',
+      md5: 'MD5',
+      actions: '操作',
+      copyName: '复制文件名',
+      copyMD5: '复制MD5',
+      delete: '删除'
+    },
+    file: {
+      id: '序号',
+      name: '文件名',
+      size: '文件长度',
+      md5: 'MD5',
+      actions: '操作',
+      copyName: '复制文件名',
+      copyMD5: '复制MD5',
+      delete: '删除'
+    }
   }
   // table: {
   //   dynamicTips1: '固定表头, 按照表头顺序排序',

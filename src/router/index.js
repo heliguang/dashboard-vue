@@ -6,7 +6,7 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
-import tableRouter from './modules/table'
+import adminRouter from './modules/admin'
 import serviceRouter from './modules/service'
 
 /**
@@ -58,7 +58,7 @@ export const constantRoutes = [
     }]
   },
 
-  tableRouter,
+  adminRouter,
   serviceRouter,
 
   // 404 page must be placed at the end !!!

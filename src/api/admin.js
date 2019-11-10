@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function replaceUser(data) {
   return request({
-    url: '/admin/replaceUser',
+    url: '/user',
     method: 'post',
     data
   })
@@ -10,15 +10,15 @@ export function replaceUser(data) {
 
 export function deleteUser(data) {
   return request({
-    url: '/admin/deleteUser',
-    method: 'post',
+    url: '/user',
+    method: 'delete',
     data
   })
 }
 
 export function getAllUser() {
   return request({
-    url: '/admin/getAllUser',
+    url: '/users',
     method: 'get'
   })
 }
