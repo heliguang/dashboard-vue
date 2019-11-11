@@ -16,7 +16,6 @@
       <div v-else-if="v.type === '文件'" class="type-file">
         <img :src="fileIcon">
         <div>
-          <!-- <p>{{v.data.slice(v.data.lastIndexOf('/') + 1)}}</p> -->
           <p>{{v.data}}</p>
           <a :href="v.data" download>下载</a>
         </div>
@@ -36,7 +35,12 @@ import fileIcon from '@/assets/chat_images/file.png'
 
 export default {
   name: 'MessageItem',
-  props: ['v'],
+  props: {
+    v: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       bg: bg,

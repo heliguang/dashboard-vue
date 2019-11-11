@@ -1,6 +1,6 @@
 <template>
   <div class="vchat-home">
-    <chat></chat>
+    <chat />
   </div>
 </template>
 

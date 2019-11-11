@@ -162,6 +162,7 @@ export default {
       font-size: 16px;
       padding: 0 10px;
       box-sizing: border-box;
+      color: white;
       background-color: #35d0c5;
 
       span {
