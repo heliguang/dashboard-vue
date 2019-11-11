@@ -26,7 +26,7 @@ const serviceRouter = {
     },
     {
       path: 'conn',
-      component: () => import('@/views/service/conn'),
+      component: () => import('@/views/service/conn/index'),
       name: 'ConnService',
       meta: { title: '长连接服务' }
     },
